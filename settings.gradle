@@ -1,4 +1,7 @@
 pluginManagement {
+	include ':LibBlockAttributes'
+	project(':LibBlockAttributes').projectDir = new File('../LibBlockAttributes')
+
     repositories {
         jcenter()
         mavenLocal()

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.2.7-SNAPSHOT'
+    id 'fabric-loom' version '0.4-SNAPSHOT'
 }
 
 apply plugin: 'maven-publish' // for uploading to a maven repo
@@ -13,27 +13,29 @@ repositories {
 }
 
 archivesBaseName = "SimplePipes"
-version = "0.4.1-pre.3"
+version = "0.4.1-jilo1"
 
 minecraft {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.16-pre4"
-    mappings "net.fabricmc:yarn:1.16-pre4+build.1:v2"
-    modImplementation "net.fabricmc:fabric-loader:0.8.7+build.201"
-
+    minecraft "com.mojang:minecraft:1.16.1"
+    mappings "net.fabricmc:yarn:1.16.1+build.21:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.9.0+build.204"
+            
     //Fabric api
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.12.0+build.360-1.16"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.16.0+build.384-1.16.1"
 
     // Silk API
     // modCompile "io.github.prospector.silk:SilkAPI:1.2.3-38"
 
-    modApi "alexiil.mc.lib:libblockattributes-all:$libblockattributes_version"
+	compile project(':LibBlockAttributes')
+
+    //modApi project(':LibBlockAttributes')
     modApi "alexiil.mc.lib:libnetworkstack-base:$libnetworkstack_version"
     modApi "alexiil.mc.lib:libmultipart-base:$libmultipart_version"
 
-    include "alexiil.mc.lib:libblockattributes-all:$libblockattributes_version"
+    //include project(':LibBlockAttributes')
     include "alexiil.mc.lib:libnetworkstack-base:$libnetworkstack_version"
     include "alexiil.mc.lib:libmultipart-base:$libmultipart_version"
 
